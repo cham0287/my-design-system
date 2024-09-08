@@ -36,6 +36,7 @@ const RAW_RUNTIME_STATE =
           ["eslint-plugin-react-hooks", "virtual:c150bec6cf715e9542b20b32709127b50d0390c596c9758ce19db72bfdf043c9deb42bcb1f75aff449f4119dd6544eeba949b4d5f45b4d99a25e7270884f5bb3#npm:5.1.0-rc-fb9a90fa48-20240614"],\
           ["eslint-plugin-react-refresh", "virtual:c150bec6cf715e9542b20b32709127b50d0390c596c9758ce19db72bfdf043c9deb42bcb1f75aff449f4119dd6544eeba949b4d5f45b4d99a25e7270884f5bb3#npm:0.4.11"],\
           ["globals", "npm:15.9.0"],\
+          ["lucide-react", "virtual:c150bec6cf715e9542b20b32709127b50d0390c596c9758ce19db72bfdf043c9deb42bcb1f75aff449f4119dd6544eeba949b4d5f45b4d99a25e7270884f5bb3#npm:0.439.0"],\
           ["postcss", "npm:8.4.45"],\
           ["react", "npm:18.3.1"],\
           ["react-dom", "virtual:c150bec6cf715e9542b20b32709127b50d0390c596c9758ce19db72bfdf043c9deb42bcb1f75aff449f4119dd6544eeba949b4d5f45b4d99a25e7270884f5bb3#npm:18.3.1"],\
@@ -2403,6 +2404,28 @@ const RAW_RUNTIME_STATE =
         "linkType": "HARD"\
       }]\
     ]],\
+    ["lucide-react", [\
+      ["npm:0.439.0", {\
+        "packageLocation": "../../../.yarn/berry/cache/lucide-react-npm-0.439.0-f219c67bf3-10c0.zip/node_modules/lucide-react/",\
+        "packageDependencies": [\
+          ["lucide-react", "npm:0.439.0"]\
+        ],\
+        "linkType": "SOFT"\
+      }],\
+      ["virtual:c150bec6cf715e9542b20b32709127b50d0390c596c9758ce19db72bfdf043c9deb42bcb1f75aff449f4119dd6544eeba949b4d5f45b4d99a25e7270884f5bb3#npm:0.439.0", {\
+        "packageLocation": "./.yarn/__virtual__/lucide-react-virtual-ea4b27011b/4/.yarn/berry/cache/lucide-react-npm-0.439.0-f219c67bf3-10c0.zip/node_modules/lucide-react/",\
+        "packageDependencies": [\
+          ["lucide-react", "virtual:c150bec6cf715e9542b20b32709127b50d0390c596c9758ce19db72bfdf043c9deb42bcb1f75aff449f4119dd6544eeba949b4d5f45b4d99a25e7270884f5bb3#npm:0.439.0"],\
+          ["@types/react", "npm:18.3.5"],\
+          ["react", "npm:18.3.1"]\
+        ],\
+        "packagePeers": [\
+          "@types/react",\
+          "react"\
+        ],\
+        "linkType": "HARD"\
+      }]\
+    ]],\
     ["make-fetch-happen", [\
       ["npm:13.0.1", {\
         "packageLocation": "../../../.yarn/berry/cache/make-fetch-happen-npm-13.0.1-4180f2aaa8-10c0.zip/node_modules/make-fetch-happen/",\
@@ -2582,6 +2605,7 @@ const RAW_RUNTIME_STATE =
           ["eslint-plugin-react-hooks", "virtual:c150bec6cf715e9542b20b32709127b50d0390c596c9758ce19db72bfdf043c9deb42bcb1f75aff449f4119dd6544eeba949b4d5f45b4d99a25e7270884f5bb3#npm:5.1.0-rc-fb9a90fa48-20240614"],\
           ["eslint-plugin-react-refresh", "virtual:c150bec6cf715e9542b20b32709127b50d0390c596c9758ce19db72bfdf043c9deb42bcb1f75aff449f4119dd6544eeba949b4d5f45b4d99a25e7270884f5bb3#npm:0.4.11"],\
           ["globals", "npm:15.9.0"],\
+          ["lucide-react", "virtual:c150bec6cf715e9542b20b32709127b50d0390c596c9758ce19db72bfdf043c9deb42bcb1f75aff449f4119dd6544eeba949b4d5f45b4d99a25e7270884f5bb3#npm:0.439.0"],\
           ["postcss", "npm:8.4.45"],\
           ["react", "npm:18.3.1"],\
           ["react-dom", "virtual:c150bec6cf715e9542b20b32709127b50d0390c596c9758ce19db72bfdf043c9deb42bcb1f75aff449f4119dd6544eeba949b4d5f45b4d99a25e7270884f5bb3#npm:18.3.1"],\
