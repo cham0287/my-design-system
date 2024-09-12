@@ -1,8 +1,8 @@
-import React, { ReactNode, createContext, useContext, useReducer } from 'react';
+import React, { ReactNode, createContext, useContext, useState } from 'react';
 import { ChevronDown } from 'lucide-react';
 
 type AccordionContextType = {
-  openItems: { [key: string]: boolean };
+  openItem: string | null;
   toggleItem: (value: string) => void;
 };
 
@@ -10,42 +10,19 @@ const AccordionContext = createContext<AccordionContextType | undefined>(
   undefined
 );
 
-type AccordionAction = { type: 'TOGGLE_ITEM'; value: string };
-
-function accordionReducer(
-  state: { [key: string]: boolean },
-  action: AccordionAction
-) {
-  switch (action.type) {
-    case 'TOGGLE_ITEM': {
-      const newState = Object.keys(state).reduce<{ [key: string]: boolean }>(
-        (acc, key) => {
-          acc[key] = false;
-          return acc;
-        },
-        {}
-      );
-      newState[action.value] = !state[action.value];
-      return newState;
-    }
-    default:
-      return state;
-  }
-}
-
 interface RootProps extends React.HTMLAttributes<HTMLDivElement> {
   children: ReactNode;
 }
 
 const Root = ({ children, ...props }: RootProps) => {
-  const [openItems, dispatch] = useReducer(accordionReducer, {});
+  const [openItem, setOpenItem] = useState<string | null>(null);
 
   const toggleItem = (value: string) => {
-    dispatch({ type: 'TOGGLE_ITEM', value });
+    setOpenItem((prev) => (prev === value ? null : value));
   };
 
   return (
-    <AccordionContext.Provider value={{ openItems, toggleItem }}>
+    <AccordionContext.Provider value={{ openItem, toggleItem }}>
       <div {...props}>{children}</div>
     </AccordionContext.Provider>
   );
@@ -60,8 +37,8 @@ const Item = ({ children, value, ...props }: ItemProps) => {
   const context = useContext(AccordionContext);
   if (!context) throw new Error('Item must be used within Root Component');
 
-  const { openItems, toggleItem } = context;
-  const isOpen = openItems[value];
+  const { openItem, toggleItem } = context;
+  const isOpen = openItem === value;
 
   const childrenArray = React.Children.toArray(children);
 
