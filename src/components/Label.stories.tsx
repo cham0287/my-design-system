@@ -23,7 +23,10 @@ export const WithHtmlFor: Story = {
   },
   render: (args) => (
     <div>
-      <Label.Root {...args} />
+      <Label.Root {...args}>
+        hello
+        <div>hello</div>
+      </Label.Root>
       <input id='email-input' type='email' placeholder='Enter your email' />
     </div>
   ),
