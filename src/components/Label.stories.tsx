@@ -1,5 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/react';
 import * as Label from './Label';
+import './label.css';
 
 const meta: Meta<typeof Label.Root> = {
   title: 'Components/Label',
@@ -16,18 +17,29 @@ export const Default: Story = {
   },
 };
 
-export const WithHtmlFor: Story = {
+export const WithInput: Story = {
   args: {
-    children: 'Email',
-    htmlFor: 'email-input',
+    children: 'First name',
+    htmlFor: 'firstName',
+    className: 'LabelRoot',
   },
   render: (args) => (
-    <div>
-      <Label.Root {...args}>
-        hello
-        <div>hello</div>
-      </Label.Root>
-      <input id='email-input' type='email' placeholder='Enter your email' />
+    <div
+      style={{
+        display: 'flex',
+        padding: '0 20px',
+        flexWrap: 'wrap',
+        gap: 15,
+        alignItems: 'center',
+      }}
+    >
+      <Label.Root {...args} />
+      <input
+        className='Input'
+        type='text'
+        id={args.htmlFor}
+        defaultValue='Pedro Duarte'
+      />
     </div>
   ),
 };
