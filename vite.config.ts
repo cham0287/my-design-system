@@ -21,7 +21,6 @@ export default defineConfig({
       },
     },
     target: 'esnext',
-    minify: 'terser',
   },
   resolve: {
     extensions: ['.ts', '.tsx', '.js', '.jsx'],
