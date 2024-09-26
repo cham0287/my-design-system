@@ -20,7 +20,7 @@ export default defineConfig({
         },
       },
     },
-    target: 'esnext',
+    target: 'es6',
   },
   resolve: {
     extensions: ['.ts', '.tsx', '.js', '.jsx'],
