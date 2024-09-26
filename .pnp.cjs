@@ -37,6 +37,7 @@ const RAW_RUNTIME_STATE =
           ["@storybook/react", "virtual:c150bec6cf715e9542b20b32709127b50d0390c596c9758ce19db72bfdf043c9deb42bcb1f75aff449f4119dd6544eeba949b4d5f45b4d99a25e7270884f5bb3#npm:8.2.9"],\
           ["@storybook/react-vite", "virtual:c150bec6cf715e9542b20b32709127b50d0390c596c9758ce19db72bfdf043c9deb42bcb1f75aff449f4119dd6544eeba949b4d5f45b4d99a25e7270884f5bb3#npm:8.2.9"],\
           ["@storybook/test", "virtual:c150bec6cf715e9542b20b32709127b50d0390c596c9758ce19db72bfdf043c9deb42bcb1f75aff449f4119dd6544eeba949b4d5f45b4d99a25e7270884f5bb3#npm:8.2.9"],\
+          ["@types/node", "npm:22.7.0"],\
           ["@types/react", "npm:18.3.5"],\
           ["@types/react-dom", "npm:18.3.0"],\
           ["@vitejs/plugin-react-swc", "virtual:c150bec6cf715e9542b20b32709127b50d0390c596c9758ce19db72bfdf043c9deb42bcb1f75aff449f4119dd6544eeba949b4d5f45b4d99a25e7270884f5bb3#npm:3.7.0"],\
@@ -4747,6 +4748,14 @@ const RAW_RUNTIME_STATE =
           ["undici-types", "npm:6.19.8"]\
         ],\
         "linkType": "HARD"\
+      }],\
+      ["npm:22.7.0", {\
+        "packageLocation": "../../../.yarn/berry/cache/@types-node-npm-22.7.0-ec7f359a48-10c0.zip/node_modules/@types/node/",\
+        "packageDependencies": [\
+          ["@types/node", "npm:22.7.0"],\
+          ["undici-types", "npm:6.19.8"]\
+        ],\
+        "linkType": "HARD"\
       }]\
     ]],\
     ["@types/prop-types", [\
@@ -8643,6 +8652,7 @@ const RAW_RUNTIME_STATE =
           ["@storybook/react", "virtual:c150bec6cf715e9542b20b32709127b50d0390c596c9758ce19db72bfdf043c9deb42bcb1f75aff449f4119dd6544eeba949b4d5f45b4d99a25e7270884f5bb3#npm:8.2.9"],\
           ["@storybook/react-vite", "virtual:c150bec6cf715e9542b20b32709127b50d0390c596c9758ce19db72bfdf043c9deb42bcb1f75aff449f4119dd6544eeba949b4d5f45b4d99a25e7270884f5bb3#npm:8.2.9"],\
           ["@storybook/test", "virtual:c150bec6cf715e9542b20b32709127b50d0390c596c9758ce19db72bfdf043c9deb42bcb1f75aff449f4119dd6544eeba949b4d5f45b4d99a25e7270884f5bb3#npm:8.2.9"],\
+          ["@types/node", "npm:22.7.0"],\
           ["@types/react", "npm:18.3.5"],\
           ["@types/react-dom", "npm:18.3.0"],\
           ["@vitejs/plugin-react-swc", "virtual:c150bec6cf715e9542b20b32709127b50d0390c596c9758ce19db72bfdf043c9deb42bcb1f75aff449f4119dd6544eeba949b4d5f45b4d99a25e7270884f5bb3#npm:3.7.0"],\
@@ -11057,7 +11067,7 @@ const RAW_RUNTIME_STATE =
           ["vite", "virtual:c150bec6cf715e9542b20b32709127b50d0390c596c9758ce19db72bfdf043c9deb42bcb1f75aff449f4119dd6544eeba949b4d5f45b4d99a25e7270884f5bb3#npm:5.4.3"],\
           ["@types/less", null],\
           ["@types/lightningcss", null],\
-          ["@types/node", null],\
+          ["@types/node", "npm:22.7.0"],\
           ["@types/sass", null],\
           ["@types/sass-embedded", null],\
           ["@types/stylus", null],\
