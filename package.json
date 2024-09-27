@@ -7,19 +7,20 @@
     ".": {
       "import": "./dist/bundle.mjs",
       "require": "./dist/bundle.cjs",
-      "types": "./dist/index.d.ts"
+      "types": "./dist/types/index.d.ts"
     }
   },
   "main": "./dist/bundle.cjs",
   "module": "./dist/bundle.mjs",
-  "types": "./dist/index.d.ts",
+  "types": "./dist/types/index.d.ts",
   "files": [
     "dist"
   ],
   "scripts": {
     "dev": "vite",
-    "build": "rm -rf dist/ && vite build && tsc -p tsconfig.json",
-    "lint": "eslint .",
+    "build": "rm -rf dist/ && vite build && tsc -p tsconfig.build.json",
+    "type-check": "tsc --noEmit -p tsconfig.json",
+    "lint": "eslint . --ext .ts,.tsx",
     "preview": "vite preview",
     "storybook": "storybook dev -p 6006",
     "build-storybook": "storybook build"
