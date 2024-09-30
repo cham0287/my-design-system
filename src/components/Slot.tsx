@@ -62,8 +62,8 @@ function mergeProps(slotProps: AnyProps, childProps: AnyProps) {
 
 function getElementRef(element: React.ReactElement) {
   // React <=18 in DEV
-  let getter = Object.getOwnPropertyDescriptor(element.props, 'ref')?.get;
-  let mayWarn = getter && 'isReactWarning' in getter && getter.isReactWarning;
+  const getter = Object.getOwnPropertyDescriptor(element.props, 'ref')?.get;
+  const mayWarn = getter && 'isReactWarning' in getter && getter.isReactWarning;
   if (mayWarn) {
     return (element as any).ref;
   }
