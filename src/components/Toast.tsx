@@ -1,17 +1,11 @@
-import React, {
-  useState,
-  useEffect,
-  createContext,
-  useContext,
-  useCallback,
-} from 'react';
+import React, { useState, useEffect, createContext, useCallback } from 'react';
 import { createPortal } from 'react-dom';
 
 // Toast 함수 타입 정의
 type ToastFunction = (message: string) => void;
 
 // Context 생성
-const ToastContext = createContext<ToastFunction | null>(null);
+export const ToastContext = createContext<ToastFunction | null>(null);
 
 // 전역 toast 함수
 let globalToast: ToastFunction | null = null;
@@ -47,15 +41,6 @@ export const ToastProvider: React.FC<{ children: React.ReactNode }> = ({
       <ToastContainer toasts={toasts} />
     </ToastContext.Provider>
   );
-};
-
-// useToast 훅 (React 컴포넌트 내에서 사용)
-export const useToast = () => {
-  const context = useContext(ToastContext);
-  if (context === null) {
-    throw new Error('useToast must be used within a ToastProvider');
-  }
-  return context;
 };
 
 // 전역에서 사용 가능한 toast 함수
