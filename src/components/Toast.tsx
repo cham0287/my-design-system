@@ -7,7 +7,17 @@ let globalToast: ToastFunction | undefined = undefined;
 
 type ToastType = { id: number; message: string };
 
-export const ToastContainer: React.FC = () => {
+interface ToastContainerProps {
+  duration?: number;
+}
+
+/**
+ * A component to render toast messages.
+ * @param duration - The duration for which toasts are displayed, default is 3000ms.
+ */
+export const ToastContainer: React.FC<ToastContainerProps> = ({
+  duration = 3000,
+}) => {
   const [toasts, setToasts] = useState<ToastType[]>([]);
 
   const addToast: ToastFunction = (message: string) => {
@@ -16,12 +26,12 @@ export const ToastContainer: React.FC = () => {
 
     setTimeout(() => {
       setToasts((prevToasts) => prevToasts.filter((toast) => toast.id !== id));
-    }, 3000);
+    }, duration);
   };
 
   useEffect(() => {
     globalToast = addToast;
-  }, []);
+  }, [duration]);
 
   return createPortal(
     <div style={containerStyle}>
@@ -35,6 +45,15 @@ export const ToastContainer: React.FC = () => {
   );
 };
 
+/**
+ * Globally accessible toast function.
+ *
+ * @param message - The toast message to be displayed.
+ *
+ * @throws {Error} If called before the ToastProvider is initialized.
+ *
+ * @example toast('hello this is a toast message')
+ */
 export const toast: ToastFunction = (message) => {
   if (globalToast) {
     globalToast(message);
@@ -45,9 +64,6 @@ export const toast: ToastFunction = (message) => {
   }
 };
 
-/**
- * 토스트를 렌더링할 루트 요소를 가져오거나 없으면 생성
- */
 function getToastRoot(): HTMLElement {
   let toastRoot = document.getElementById('toast-root');
   if (!toastRoot) {
