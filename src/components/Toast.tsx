@@ -1,59 +1,28 @@
-import React, { useState, useEffect, createContext, useCallback } from 'react';
+import React, { useState, useEffect } from 'react';
 import { createPortal } from 'react-dom';
 
-// Toast 함수 타입 정의
 type ToastFunction = (message: string) => void;
 
-// Context 생성
-export const ToastContext = createContext<ToastFunction | null>(null);
-
-// 전역 toast 함수
-let globalToast: ToastFunction | null = null;
+let globalToast: ToastFunction | undefined = undefined;
 
 type ToastType = { id: number; message: string };
 
-// Toast Provider 컴포넌트
-export const ToastProvider: React.FC<{ children: React.ReactNode }> = ({
-  children,
-}) => {
+export const ToastContainer: React.FC = () => {
   const [toasts, setToasts] = useState<ToastType[]>([]);
 
-  const addToast: ToastFunction = useCallback((message: string) => {
+  const addToast: ToastFunction = (message: string) => {
     const id = Date.now();
     setToasts((prevToasts) => [...prevToasts, { id, message }]);
 
     setTimeout(() => {
       setToasts((prevToasts) => prevToasts.filter((toast) => toast.id !== id));
     }, 3000);
-  }, []);
+  };
 
-  // 전역 toast 함수 설정
   useEffect(() => {
     globalToast = addToast;
-    return () => {
-      globalToast = null;
-    };
-  }, [addToast]);
+  }, []);
 
-  return (
-    <ToastContext.Provider value={addToast}>
-      {children}
-      <ToastContainer toasts={toasts} />
-    </ToastContext.Provider>
-  );
-};
-
-// 전역에서 사용 가능한 toast 함수
-export const toast: ToastFunction = (message) => {
-  if (globalToast) {
-    globalToast(message);
-  } else {
-    console.warn('Toast function called before ToastProvider was initialized');
-  }
-};
-
-// ToastContainer 컴포넌트
-const ToastContainer: React.FC<{ toasts: ToastType[] }> = ({ toasts }) => {
   return createPortal(
     <div style={containerStyle}>
       {toasts.map((toast) => (
@@ -66,8 +35,18 @@ const ToastContainer: React.FC<{ toasts: ToastType[] }> = ({ toasts }) => {
   );
 };
 
+export const toast: ToastFunction = (message) => {
+  if (globalToast) {
+    globalToast(message);
+  } else {
+    throw new Error(
+      'Toast function cannot be called before ToastProvider was initialized'
+    );
+  }
+};
+
 /**
- * 토스트를 렌더링할 루트 요소를 가져오거나 생성합니다.
+ * 토스트를 렌더링할 루트 요소를 가져오거나 없으면 생성
  */
 function getToastRoot(): HTMLElement {
   let toastRoot = document.getElementById('toast-root');
@@ -78,8 +57,6 @@ function getToastRoot(): HTMLElement {
   }
   return toastRoot;
 }
-
-// ------ 스타일 ------
 
 const containerStyle: React.CSSProperties = {
   position: 'fixed',

@@ -1,20 +1,21 @@
 import { Meta, StoryObj } from '@storybook/react';
-import { ToastProvider, toast } from './Toast';
+import { ToastContainer, toast } from './Toast';
 
 const meta: Meta = {
   title: 'Components/Toast',
-  component: ToastProvider,
+  component: ToastContainer,
   tags: ['autodocs'],
 };
 
 export default meta;
 
-type Story = StoryObj<typeof ToastProvider>;
+type Story = StoryObj<typeof ToastContainer>;
 
 // 기본 스토리 정의
 export const Default: Story = {
   render: () => (
-    <ToastProvider>
+    <div>
+      <ToastContainer />
       <div style={{ padding: '2rem' }}>
         {/* 토스트를 트리거하는 버튼 */}
         <button
@@ -32,6 +33,6 @@ export const Default: Story = {
           토스트 표시하기
         </button>
       </div>
-    </ToastProvider>
+    </div>
   ),
 };
